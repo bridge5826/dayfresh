@@ -91,7 +91,7 @@ public class User {
         this.isclock = isclock == null ? null : isclock.trim();
     }
 
-    public User( String username, String password, String email, String address, Integer receiveid, String telephone, Integer roleid, String isclock) {
+    public User(String username, String password, String email, String address, Integer receiveid, String telephone, Integer roleid, String isclock) {
         this.username = username;
         this.password = password;
         this.email = email;
@@ -103,5 +103,20 @@ public class User {
     }
 
     public User() {
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", receiveid=" + receiveid +
+                ", telephone='" + telephone + '\'' +
+                ", roleid=" + roleid +
+                ", isclock='" + isclock + '\'' +
+                '}';
     }
 }

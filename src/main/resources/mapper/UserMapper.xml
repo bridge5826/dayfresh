@@ -1,149 +1,149 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dayfresh1.mapper.UserMapper">
-  <resultMap id="BaseResultMap" type="com.dayfresh1.pojo.User">
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="userName" jdbcType="VARCHAR" property="username" />
-    <result column="passWord" jdbcType="VARCHAR" property="password" />
-    <result column="email" jdbcType="VARCHAR" property="email" />
-    <result column="address" jdbcType="VARCHAR" property="address" />
-    <result column="receiveId" jdbcType="INTEGER" property="receiveid" />
-    <result column="telephone" jdbcType="VARCHAR" property="telephone" />
-    <result column="roleId" jdbcType="INTEGER" property="roleid" />
-    <result column="isClock" jdbcType="VARCHAR" property="isclock" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    id, userName, passWord, email, address, receiveId, telephone, roleId, isClock
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from user
-    where id = #{id,jdbcType=INTEGER}
-  </select>
+    <resultMap id="BaseResultMap" type="com.dayfresh1.pojo.User">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="userName" jdbcType="VARCHAR" property="username"/>
+        <result column="passWord" jdbcType="VARCHAR" property="password"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="address" jdbcType="VARCHAR" property="address"/>
+        <result column="receiveId" jdbcType="INTEGER" property="receiveid"/>
+        <result column="telephone" jdbcType="VARCHAR" property="telephone"/>
+        <result column="roleId" jdbcType="INTEGER" property="roleid"/>
+        <result column="isClock" jdbcType="VARCHAR" property="isclock"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, userName, passWord, email, address, receiveId, telephone, roleId, isClock
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from user
+        where id = #{id,jdbcType=INTEGER}
+    </select>
 
-  <select id="selectOne" resultType="com.dayfresh1.pojo.User">
-    select * from user where userName = #{userName}
-  </select>
-  <select id="selectEmail" resultType="com.dayfresh1.pojo.User">
-   select * from user  where email = #{email}
-  </select>
+    <select id="selectOne" resultType="com.dayfresh1.pojo.User">
+        select * from user where userName = #{userName}
+    </select>
+    <select id="selectEmail" resultType="com.dayfresh1.pojo.User">
+        select * from user where email = #{email}
+    </select>
 
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from user
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.dayfresh1.pojo.User">
-    insert into user (id, userName, passWord, 
-      email, address, receiveId, 
-      telephone, roleId, isClock
-      )
-    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{email,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{receiveid,jdbcType=INTEGER}, 
-      #{telephone,jdbcType=VARCHAR}, #{roleid,jdbcType=INTEGER}, #{isclock,jdbcType=VARCHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.dayfresh1.pojo.User">
-    insert into user
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="username != null">
-        userName,
-      </if>
-      <if test="password != null">
-        passWord,
-      </if>
-      <if test="email != null">
-        email,
-      </if>
-      <if test="address != null">
-        address,
-      </if>
-      <if test="receiveid != null">
-        receiveId,
-      </if>
-      <if test="telephone != null">
-        telephone,
-      </if>
-      <if test="roleid != null">
-        roleId,
-      </if>
-      <if test="isclock != null">
-        isClock,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="username != null">
-        #{username,jdbcType=VARCHAR},
-      </if>
-      <if test="password != null">
-        #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="email != null">
-        #{email,jdbcType=VARCHAR},
-      </if>
-      <if test="address != null">
-        #{address,jdbcType=VARCHAR},
-      </if>
-      <if test="receiveid != null">
-        #{receiveid,jdbcType=INTEGER},
-      </if>
-      <if test="telephone != null">
-        #{telephone,jdbcType=VARCHAR},
-      </if>
-      <if test="roleid != null">
-        #{roleid,jdbcType=INTEGER},
-      </if>
-      <if test="isclock != null">
-        #{isclock,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.dayfresh1.pojo.User">
-    update user
-    <set>
-      <if test="username != null">
-        userName = #{username,jdbcType=VARCHAR},
-      </if>
-      <if test="password != null">
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from user
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.dayfresh1.pojo.User">
+        insert into user (id, userName, passWord,
+        email, address, receiveId,
+        telephone, roleId, isClock
+        )
+        values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+        #{email,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{receiveid,jdbcType=INTEGER},
+        #{telephone,jdbcType=VARCHAR}, #{roleid,jdbcType=INTEGER}, #{isclock,jdbcType=VARCHAR}
+        )
+    </insert>
+    <insert id="insertSelective" parameterType="com.dayfresh1.pojo.User">
+        insert into user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="username != null">
+                userName,
+            </if>
+            <if test="password != null">
+                passWord,
+            </if>
+            <if test="email != null">
+                email,
+            </if>
+            <if test="address != null">
+                address,
+            </if>
+            <if test="receiveid != null">
+                receiveId,
+            </if>
+            <if test="telephone != null">
+                telephone,
+            </if>
+            <if test="roleid != null">
+                roleId,
+            </if>
+            <if test="isclock != null">
+                isClock,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="username != null">
+                #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="receiveid != null">
+                #{receiveid,jdbcType=INTEGER},
+            </if>
+            <if test="telephone != null">
+                #{telephone,jdbcType=VARCHAR},
+            </if>
+            <if test="roleid != null">
+                #{roleid,jdbcType=INTEGER},
+            </if>
+            <if test="isclock != null">
+                #{isclock,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.dayfresh1.pojo.User">
+        update user
+        <set>
+            <if test="username != null">
+                userName = #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                passWord = #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                email = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                address = #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="receiveid != null">
+                receiveId = #{receiveid,jdbcType=INTEGER},
+            </if>
+            <if test="telephone != null">
+                telephone = #{telephone,jdbcType=VARCHAR},
+            </if>
+            <if test="roleid != null">
+                roleId = #{roleid,jdbcType=INTEGER},
+            </if>
+            <if test="isclock != null">
+                isClock = #{isclock,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.dayfresh1.pojo.User">
+        update user
+        set userName = #{username,jdbcType=VARCHAR},
         passWord = #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="email != null">
         email = #{email,jdbcType=VARCHAR},
-      </if>
-      <if test="address != null">
         address = #{address,jdbcType=VARCHAR},
-      </if>
-      <if test="receiveid != null">
         receiveId = #{receiveid,jdbcType=INTEGER},
-      </if>
-      <if test="telephone != null">
         telephone = #{telephone,jdbcType=VARCHAR},
-      </if>
-      <if test="roleid != null">
         roleId = #{roleid,jdbcType=INTEGER},
-      </if>
-      <if test="isclock != null">
-        isClock = #{isclock,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.dayfresh1.pojo.User">
-    update user
-    set userName = #{username,jdbcType=VARCHAR},
-      passWord = #{password,jdbcType=VARCHAR},
-      email = #{email,jdbcType=VARCHAR},
-      address = #{address,jdbcType=VARCHAR},
-      receiveId = #{receiveid,jdbcType=INTEGER},
-      telephone = #{telephone,jdbcType=VARCHAR},
-      roleId = #{roleid,jdbcType=INTEGER},
-      isClock = #{isclock,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        isClock = #{isclock,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
 </mapper>
